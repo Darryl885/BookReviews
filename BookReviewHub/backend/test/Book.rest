@@ -1,0 +1,39 @@
+
+### fonction Ajout d'un livre par un utilisateur  
+POST http://localhost:5000/api/books
+Content-Type: application/json
+Cookie: connect.sid=s%3AOi5erkrw1CATdP0UJL1YNFekbuyp3bZw.VGfNleUOv7WOzbZYcHpBM9d5Q9ca8OymKuS8Nr3iTTQ; Path=/; Expires=Fri, 23 May 2025 12:07:58 GMT; HttpOnly
+
+{
+    "title": "Et toujours les forêts",
+    "author": "Sandra Dollé",
+    "description": "Ce livre raconte le traumatisme qui a marqué l'adolescence de l'auteure, l'homme puis l'auteur, et revient sur le climat social de l'époque tout en pointant les différences avec notre société actuelle. Il explore la question de savoir si, à l'ère des réseaux sociaux en 2024, quelqu'un pourrait disparaître sans laisser de traces comme Nicolas.",
+    "coverImage": "https://www.babelio.com/users/Les-24-livres-les-plus-populaires-de-2024.jpeg",
+    "userId": 1
+}
+
+
+###Récupère tous les livres de la base de données.
+###  Utilise le cookie connect.sid pour identifier l'utilisateur en session.
+GET http://localhost:5000/api/books
+Content-Type: application/json
+Cookie:  connect.sid=s%3ARItt5eB6zUDld_TGxL0g5jniyq_M1ain.4tl7U%2BkND3aoBPNxI6Mcjf8MtR%2FT4tQGvFjfi0QfR8o; Path=/; Expires=Thu, 22 May 2025 11:13:39 GMT; HttpOnly
+
+
+###Récupère le livre avec id: 1. 
+### Utilise le cookie connect.sid pour identifier l'utilisateur en session
+GET http://localhost:5000/api/books/1
+Content-Type: application/json
+Cookie: connect.sid=s%3ARItt5eB6zUDld_TGxL0g5jniyq_M1ain.4tl7U%2BkND3aoBPNxI6Mcjf8MtR%2FT4tQGvFjfi0QfR8o; Path=/; Expires=Thu, 22 May 2025 11:13:39 GMT; HttpOnly
+
+
+###Modifie uniquement le title et la description du livre id: 1
+PUT http://localhost:5000/api/books/1
+Content-Type: application/json
+Cookie: connect.sid=s%3AOi5erkrw1CATdP0UJL1YNFekbuyp3bZw.VGfNleUOv7WOzbZYcHpBM9d5Q9ca8OymKuS8Nr3iTTQ; Path=/; Expires=Fri, 23 May 2025 12:07:58 GMT; HttpOnly
+
+
+{
+    "title": "Le Petit Prince - Édition Spécialemodier",
+    "description": "Nouvelle édition illustrée avec des annotations."
+}

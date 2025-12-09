@@ -1,0 +1,21 @@
+POST http://localhost:5000/api/reviewlikes
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "reviewId": 2
+}
+
+###
+GET http://localhost:5000/api/reviewlikes/2
+Content-Type: application/json
+
+
+###
+DELETE http://localhost:5000/api/reviewlikes
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "reviewId": 2
+}

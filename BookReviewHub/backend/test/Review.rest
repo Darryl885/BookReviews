@@ -1,0 +1,37 @@
+
+
+### Envoie une critique (content) avec une note (rating entre 1 et 5)
+
+POST http://localhost:5000/api/reviews/1
+Content-Type: application/json
+
+{
+    "content": "Un livre fascinant avec une histoire émouvante.",
+    "rating": 5
+}
+
+
+
+
+### Recupere une critique (content) avec une note (rating entre 1 et 5)
+GET http://localhost:5000/api/reviews/book/1
+Content-Type: application/json
+
+
+### Récupère toutes les critiques associées à userId
+GET http://localhost:5000/api/reviews/user/1
+Content-Type: application/json
+
+
+### Met à jour une critique existante avec
+PUT http://localhost:5000/api/reviews/1
+Content-Type: application/json
+
+{
+    "content": "J'ai relu ce livre et je l'apprécie encore plus.",
+    "rating": 2
+}
+
+### supprimer une critique
+DELETE http://localhost:5000/api/reviews/1
+Content-Type: application/json
