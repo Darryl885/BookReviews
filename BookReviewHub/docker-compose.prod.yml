@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  frontend:
+    image: darryl443/bookreviewhub-frontend:latest
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  backend:
+    image: darryl443/bookreviewhub-backend:latest
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=example
+      - DB_NAME=bookreviewhub
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=example
+      - MYSQL_DATABASE=bookreviewhub
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
