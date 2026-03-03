@@ -1,0 +1,32 @@
+<section class="contact-form">
+  <h2>Contactez-moi</h2>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="text" formControlName="name" placeholder="Votre nom complet">
+      <small *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+        Le nom doit contenir au moins 3 caractères.
+      </small>
+    </div>
+
+    <div>
+      <input type="email" formControlName="email" placeholder="votre@email.com">
+      <small *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+        Veuillez entrer une adresse email valide.
+      </small>
+    </div>
+
+    <div>
+      <textarea formControlName="message" rows="5" placeholder="Votre message..."></textarea>
+      <small *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+        Le message doit faire au moins 10 caractères.
+      </small>
+    </div>
+
+    <button type="submit" [disabled]="contactForm.invalid || loading">
+      {{ loading ? 'Envoi en cours...' : 'Envoyer le message' }}
+    </button>
+  </form>
+
+  <p *ngIf="statusMessage" class="feedback">{{ statusMessage }}</p>
+</section>

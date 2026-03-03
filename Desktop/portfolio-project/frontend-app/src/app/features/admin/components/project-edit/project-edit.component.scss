@@ -1,0 +1,63 @@
+.admin-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .form-card {
+    background: #1e293b; // Couleur sombre style Cyber
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .form-header {
+    margin-bottom: 2rem;
+    h2 span { color: #a855f7; }
+    .subtitle { color: #94a3b8; font-size: 0.9rem; }
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label { font-weight: 500; color: #f1f5f9; }
+    
+    input, textarea, select {
+      padding: 0.75rem;
+      border-radius: 6px;
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: white;
+      &:focus { border-color: #a855f7; outline: none; }
+    }
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary { background: #334155; color: white; border: none; &:hover { background: #475569; } }
+    .btn-primary { background: #a855f7; color: white; border: none; &:disabled { opacity: 0.5; cursor: not-allowed; } }
+  }
+
+  .error { color: #ef4444; font-size: 0.8rem; }
+}

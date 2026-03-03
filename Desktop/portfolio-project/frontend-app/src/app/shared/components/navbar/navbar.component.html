@@ -1,0 +1,23 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <a routerLink="/" class="logo" (click)="isMenuOpen = false">
+      Darryl<span class="logo-accent">Portfolio</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Accueil</a></li>
+      <li><a routerLink="/projects" routerLinkActive="active-link">Projets</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
+
+      <ng-container *ngIf="isLoggedIn; else loginBtn">
+        <li><a routerLink="/admin/add-project" class="admin-link" routerLinkActive="active-link">+ Projet</a></li>
+        <li><a routerLink="/admin/categories" class="admin-link" routerLinkActive="active-link">Catégories</a></li>
+        <li><a (click)="onLogout()" class="logout-btn">Déconnexion</a></li>
+      </ng-container>
+
+      <ng-template #loginBtn>
+        <li><a routerLink="/login" class="login-btn-pill">Connexion</a></li>
+      </ng-template>
+    </ul>
+  </div>
+</nav>

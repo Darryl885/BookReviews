@@ -1,0 +1,164 @@
+.admin-form-container {
+  padding: 100px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #0f172a;
+}
+
+.form-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  width: 100%;
+  max-width: 650px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    span { color: #60a5fa; }
+  }
+
+  .subtitle {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: #60a5fa;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    &::placeholder {
+      color: #475569;
+    }
+  }
+
+  /* Style spécifique pour le select */
+  select {
+    cursor: pointer;
+    option {
+      background: #1e293b;
+      color: white;
+    }
+  }
+
+  .error-text {
+    color: #f87171;
+    font-size: 0.75rem;
+    margin-top: 0.4rem;
+    display: block;
+  }
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.4);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .loader-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+/* --- Système de Toast de Succès --- */
+.success-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #1e293b;
+  border: 1px solid #10b981;
+  border-radius: 12px;
+  padding: 1rem;
+  z-index: 1000;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.5s ease forwards;
+  overflow: hidden;
+
+  .toast-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .icon { font-size: 1.5rem; }
+    .message {
+      .title { color: #10b981; font-weight: bold; margin: 0; }
+      .desc { color: #94a3b8; font-size: 0.8rem; margin: 0; }
+    }
+  }
+
+  .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: #10b981;
+    width: 100%;
+    animation: progress 3s linear forwards;
+  }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(120%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}

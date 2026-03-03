@@ -1,0 +1,27 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Connexion <span>Admin</span></h2>
+    <p class="subtitle">Accès réservé - Architecture SI</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="admin@example.com">
+        <span class="error" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']">
+          Format d'email invalide.
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <input type="password" formControlName="password" placeholder="••••••••">
+      </div>
+
+      <p class="api-error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <button type="submit" [disabled]="loginForm.invalid || isLoading">
+        {{ isLoading ? 'Connexion...' : 'Se connecter' }}
+      </button>
+    </form>
+  </div>
+</div>

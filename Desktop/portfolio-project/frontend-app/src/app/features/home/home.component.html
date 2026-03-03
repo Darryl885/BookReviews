@@ -1,0 +1,98 @@
+<section class="hero">
+  <div class="hero-container"> 
+    <div class="hero-text-content">
+      <h1 class="fade-in">Salut, je suis <span>{{ 'Darryl ' + 'Tchapda' }}</span></h1>
+      <p class="subtitle">Master 2 Cybersécurité & Pentester Junior</p>
+      
+      <p class="description">
+        Actuellement en <strong>Master 2 Cybersécurité</strong>  je suis un passionné de sécurité offensive. 
+        En tant que <strong>Stagiaire Pentester</strong>, j'audite des infrastructures PME et j'ai déjà identifié 
+        <strong>15 vulnérabilités critiques et moyennes</strong>. Mon objectif : combiner mon expertise en 
+        <strong>Génie Logiciel</strong> pour concevoir et tester des systèmes ultra-résilients.
+      </p>
+      
+      <div class="hero-btns">
+        <a routerLink="/projects" class="btn-primary">Consulter mes audits</a>
+        <a routerLink="/contact" class="btn-secondary">Me recruter</a>
+      </div>
+    </div>
+
+    <div class="hero-image-content">
+      <div class="image-wrapper">
+        <img src="images/D.jpeg" alt="Darryl Tchapda - Pentester Junior">
+        <div class="image-frame"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-decoration"></div>
+</section>
+
+<section class="skills-section">
+  <div class="skills-grid">
+    
+    <div class="skill-card">
+      <div class="icon">💻</div>
+      <h3>Développement Sécurisé</h3>
+      <ul class="skill-tags">
+        <li>Node.js & Express</li>
+        <li>JavaScript / TypeScript</li>
+        <li>Python & Bash (Scripts)</li>
+        <li>SQL (MySQL)</li>
+        <li>Sécurisation API (JWT, Helmet)</li>
+      </ul>
+    </div>
+
+    <div class="skill-card security">
+      <div class="icon">🛡️</div>
+      <h3>Pentest & Audit</h3>
+      <ul class="skill-tags">
+        <li>Kali Linux & OS Linux</li>
+        <li>Burp Suite & OWASP ZAP</li>
+        <li>Nmap, Nikto & Metasploit</li>
+        <li>Wireshark (Analyse Réseau)</li>
+        <li>Docker & Cloud (AWS)</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+<section class="projects-featured">
+  <div class="section-header">
+    <h2>Projets <span>Sécurité</span> & Lab 🛡️</h2>
+    <p class="subtitle">Travaux pratiques et recherche en vulnérabilités</p>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <span class="tag">Sécurité Offensive</span>
+        <h3>API Node.js Sécurisée</h3>
+      </div>
+      <p>Durcissement complet d'une API Express selon les standards OWASP. Mise en place de JWT, hashing bcrypt, Helmet, et protection contre les attaques par force brute (Rate Limiting). Remédiation effectuée après scans Nikto et OWASP ZAP.</p>
+      <div class="project-tech">
+        <span>Node.js</span> <span>JWT</span> <span>OWASP ZAP</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="tag">Automation</span>
+        <h3>Outil de Reconnaissance (Python)</h3>
+      </div>
+      <p>Développement d'un script d'automatisation intégrant Nmap, Gobuster et Nikto. Extraction automatique des résultats et génération de rapports techniques pour accélérer la phase de reconnaissance lors d'un audit.</p>
+      <div class="project-tech">
+        <span>Python</span> <span>Nmap</span> <span>Bash</span>
+      </div>
+    </div>
+
+    <div class="project-card highlight">
+      <div class="icon">🚩</div>
+      <h3>Lab Pentest & CTF</h3>
+      <p>Entraînement continu sur plus de 15 machines vulnérables et participation active à des CTF sur TryHackMe et HackTheBox avec plus de 50 challenges résolus.</p>
+      <div class="project-tech">
+        <span>TryHackMe</span> <span>HackTheBox</span> <span>VulnHub</span>
+      </div>
+    </div>
+  </div>
+</section>

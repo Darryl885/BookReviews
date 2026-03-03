@@ -1,0 +1,54 @@
+<div class="projects-container">
+  <div class="header-section">
+    <h1>Mes <span>Réalisations</span> 🛡️</h1>
+    <p class="subtitle">Projets de développement et audits de sécurité</p>
+  </div>
+
+  <div class="projects-grid" *ngIf="projects.length > 0; else emptyState">
+    <div class="project-card" *ngFor="let project of projects">
+      
+      <div class="category-badge" *ngIf="project.category">
+        {{ project.category.name }}
+      </div>
+
+      <div class="admin-controls">
+        <button [routerLink]="['/admin/edit', project.id]" class="btn-mini edit" title="Modifier">
+          ✏️
+        </button>
+        <button (click)="onDelete(project.id, project.title)" class="btn-mini delete" title="Supprimer">
+          🗑️
+        </button>
+      </div>
+
+      <div class="card-image">
+        <img [src]="project.image_url || 'assets/images/default-project.jpg'" [alt]="project.title">
+        <div class="card-overlay">
+          <a [routerLink]="['/projects', project.id]" class="view-btn details">Détails</a>
+          
+          <a *ngIf="project.link_github" [href]="project.link_github" target="_blank" class="view-btn">GitHub</a>
+          <a *ngIf="project.link_demo" [href]="project.link_demo" target="_blank" class="view-btn demo">Démo</a>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <h3 [routerLink]="['/projects', project.id]" style="cursor: pointer;">
+          {{ project.title }}
+        </h3>
+        
+        <p class="description">{{ project.description }}</p>
+        
+        <div class="tech-stack" *ngIf="project.technologies">
+          <span *ngFor="let tech of project.technologies">
+            {{ tech.name }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyState>
+    <div class="no-projects">
+        <p>Aucun projet à afficher pour le moment.</p>
+    </div>
+  </ng-template>
+</div>

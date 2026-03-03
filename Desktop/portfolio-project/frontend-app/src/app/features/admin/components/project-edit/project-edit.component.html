@@ -1,0 +1,62 @@
+<div class="admin-container">
+  <div class="form-card">
+    <div class="form-header">
+      <h2>Modifier le <span>Projet #{{ projectId }}</span> 🛡️</h2>
+      <p class="subtitle">Mise à jour des informations de réalisation</p>
+    </div>
+
+    <form *ngIf="projectForm" [formGroup]="projectForm" (ngSubmit)="onUpdate()">
+      
+      <div class="form-group">
+        <label for="title">Titre du projet *</label>
+        <input id="title" type="text" formControlName="title" placeholder="Ex: Audit de sécurité réseau">
+        <small class="error" *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched">
+          Le titre est requis (min. 3 caractères).
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description détaillée *</label>
+        <textarea id="description" formControlName="description" rows="5" placeholder="Décrivez le projet et votre rôle..."></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="categoryId">Catégorie *</label>
+          <select id="categoryId" formControlName="categoryId">
+            <option [ngValue]="null">-- Sélectionner --</option>
+            <option *ngFor="let cat of categories" [ngValue]="cat.id">
+              {{ cat.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="image">URL de l'image</label>
+          <input id="image" type="text" formControlName="image" placeholder="https://...">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="githubUrl">Lien GitHub</label>
+          <input id="githubUrl" type="text" formControlName="githubUrl" placeholder="https://github.com/...">
+        </div>
+
+        <div class="form-group">
+          <label for="demoUrl">Lien Démo / Live</label>
+          <input id="demoUrl" type="text" formControlName="demoUrl" placeholder="https://...">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="router.navigate(['/projects'])">
+          Annuler
+        </button>
+        <button type="submit" class="btn-primary" [disabled]="projectForm.invalid">
+          Enregistrer les modifications
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

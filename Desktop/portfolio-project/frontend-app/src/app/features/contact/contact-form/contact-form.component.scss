@@ -1,0 +1,97 @@
+/* src/app/features/contact/contact-form/contact-form.component.scss */
+
+.contact-form {
+  // BONNE PRATIQUE : Effet "Glassmorphism"
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  
+  // Le dégradé
+  background: linear-gradient(to right, #60a5fa, #a855f7);
+  
+  // BONNE PRATIQUE : On met les deux versions
+  background-clip: text;         // Version standard (pour le futur)
+  -webkit-background-clip: text; // Version pour Chrome/Safari (actuel)
+  
+  // Rend le texte transparent pour laisser voir le dégradé derrière
+  -webkit-text-fill-color: transparent; 
+  color: transparent;            // Fallback standard
+}
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    input, textarea {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.8rem;
+      border-radius: 8px;
+      color: white;
+      outline: none;
+      transition: all 0.3s ease;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      // BONNE PRATIQUE : Feedback visuel au focus
+      &:focus {
+        border-color: #60a5fa;
+        background: rgba(255, 255, 255, 0.12);
+      }
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+
+      &:disabled {
+        background: #475569;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .feedback {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #4ade80; // Vert pour le succès
+  }
+}
+
+// BONNE PRATIQUE : Style pour les erreurs de validation
+small {
+  color: #f87171;
+  font-size: 0.75rem;
+}

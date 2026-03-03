@@ -1,0 +1,116 @@
+.card-overlay {
+  display: flex;
+  flex-direction: column; /* On les empile s'il y en a trop */
+  gap: 10px;
+  padding: 15px;
+}
+
+.view-btn {
+  width: 100%;
+  text-align: center;
+  padding: 8px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+.card-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre les boutons verticalement dans l'image */
+  align-items: center;     /* Centre les boutons horizontalement */
+  gap: 12px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Fond sombre au survol pour la lisibilité */
+}
+
+.view-btn {
+  /* On définit une taille fixe et propre */
+  width: 140px;            /* Largeur fixe pour éviter l'effet "gros bouton" */
+  padding: 10px 0;         /* Espace interne vertical */
+  font-size: 0.85rem;      /* Texte un peu plus fin */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+
+  &.details {
+    background: #a855f7;
+    color: white;
+    border: 1px solid #a855f7;
+
+    &:hover {
+      background: #9333ea;
+      transform: translateY(-2px); /* Petit effet de levitation */
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+    }
+  }
+
+  &.demo {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+
+    &:hover {
+      background: white;
+      color: #000;
+    }
+  }
+}
+
+.view-btn.demo {
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #1e293b;
+  border-radius: 12px;
+  overflow: hidden; // Important pour que l'image ne dépasse pas des arrondis
+  height: 100%; // Pour que toutes les cartes aient la même taille
+
+  .card-image {
+    position: relative;
+    width: 100%;
+    height: 180px; // 💡 Taille "normale" fixée (ajuste entre 160px et 200px selon ton goût)
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // 💡 Garde les proportions sans déformer l'image
+      transition: transform 0.5s ease;
+    }
+  }
+
+  // Effet de zoom léger au survol
+  &:hover .card-image img {
+    transform: scale(1.1);
+  }
+
+  .card-content {
+    padding: 15px;
+    flex-grow: 1; // Pousse le contenu pour remplir la carte
+    
+    h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.2rem;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.4;
+      /* Limite à 3 lignes de texte pour garder l'alignement */
+      display: -webkit-box;
+      -webkit-line-clam: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}

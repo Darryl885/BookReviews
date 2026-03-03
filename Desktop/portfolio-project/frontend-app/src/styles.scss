@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+/* src/styles.scss */
+
+// BONNE PRATIQUE : Utiliser une police système propre ou Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  // Un dégradé sombre et élégant
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

@@ -1,0 +1,59 @@
+<div class="detail-container" *ngIf="project; else loadingState">
+  
+  <div class="top-nav">
+    <a routerLink="/projects" class="back-link-minimal">← Retour</a>
+  </div>
+
+  <div class="project-header">
+    <span class="category-tag" *ngIf="project.category">
+      {{ project.category?.name }}
+    </span>
+    
+    <h1>{{ project.title }}</h1>
+    
+    <div class="main-image-container">
+      <img [src]="project.image_url || 'assets/images/default-project.jpg'" 
+           [alt]="project.title" 
+           class="main-image">
+    </div>
+  </div>
+
+  <div class="project-info">
+    <section class="desc-section">
+      <h2>Description</h2>
+      <p class="description-text">{{ project.description }}</p>
+    </section>
+
+    <section class="tech-section" *ngIf="project.technologies?.length">
+      <h2>Technologies utilisées</h2>
+      <div class="tech-list">
+        <span *ngFor="let tech of project.technologies" class="tech-pill">
+          {{ tech.name }}
+        </span>
+      </div>
+    </section>
+
+    <div class="project-links">
+      <a *ngIf="project.link_github" [href]="project.link_github" target="_blank" class="btn-github">
+        GitHub 🛡️
+      </a>
+      
+      <a *ngIf="project.link_demo" [href]="project.link_demo" target="_blank" class="btn-demo">
+        Démo Live 🚀
+      </a>
+    </div>
+
+    <div class="back-action">
+      <a routerLink="/projects" class="btn-back-main">
+        <span>←</span> Revenir à la liste des projets
+      </a>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingState>
+  <div class="loader-container">
+    <div class="spinner"></div>
+    <p>Recherche des données de DarrylPortfolio...</p>
+  </div>
+</ng-template>

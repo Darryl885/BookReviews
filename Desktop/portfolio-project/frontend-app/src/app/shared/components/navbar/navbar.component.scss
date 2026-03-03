@@ -1,0 +1,64 @@
+.navbar {
+  width: 100%;
+  padding: 1.5rem 5%; /* Réduit de 10% à 5% pour laisser plus de place au menu */
+  background: #0f172a; /* Couleur sombre pour que le texte ressorte bien */
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center; /* Centre le conteneur */
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px; /* Brider la largeur pour éviter que Déconnexion ne s'échappe */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- LOGO DESIGN --- */
+.logo {
+  font-size: 1.8rem; /* Plus grand */
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
+
+.logo-accent {
+  color: #a855f7; /* Violet comme ton lien admin pour le rappel design */
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+/* --- MENU --- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Espace généreux mais maîtrisé */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logout-btn {
+  color: #f87171 !important;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(248, 113, 113, 0.2); /* Petit contour pour le rendre visible */
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: #f87171;
+}
+
+/* Rappel pour tes liens Admin */
+.admin-link {
+  color: #a855f7 !important;
+  font-weight: 600;
+}

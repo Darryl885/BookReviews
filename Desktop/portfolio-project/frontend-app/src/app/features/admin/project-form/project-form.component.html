@@ -1,0 +1,67 @@
+<div class="success-toast" *ngIf="showSuccess">
+  <div class="toast-content">
+    <span class="icon">🚀</span>
+    <div class="message">
+      <p class="title">Projet Déployé !</p>
+      <p class="desc">La base de données MySQL a été mise à jour.</p>
+    </div>
+  </div>
+  <div class="progress-bar"></div>
+</div>
+
+<div class="admin-form-container">
+  <div class="form-card">
+    <h2>Nouveau <span>Projet</span> 🛡️</h2>
+    <p class="subtitle">Enregistrement sécurisé dans la base de données</p>
+
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-group">
+        <label>Nom du projet</label>
+        <input type="text" formControlName="title" placeholder="Ex: Audit de Sécurité Web">
+        <small class="error-text" *ngIf="projectForm.get('title')?.touched && projectForm.get('title')?.invalid">
+          Le titre est requis (min. 3 caractères).
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea formControlName="description" rows="4" placeholder="Détaillez votre travail technique..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Catégorie du projet</label>
+        <select formControlName="categoryId">
+          <option [value]="null" disabled>Sélectionnez une catégorie</option>
+          <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+        </select>
+        <small class="error-text" *ngIf="projectForm.get('categoryId')?.touched && projectForm.get('categoryId')?.invalid">
+          La catégorie est obligatoire.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>URL de l'image</label>
+        <input type="text" formControlName="image" placeholder="https://via.placeholder.com/400">
+      </div>
+
+      <div class="form-group">
+        <label>Lien GitHub</label>
+        <input type="text" formControlName="githubUrl" placeholder="https://github.com/...">
+      </div>
+
+      <div class="form-group">
+        <label>Lien Démo</label>
+        <input type="text" formControlName="demoUrl" placeholder="https://demo.com/...">
+      </div>
+
+      <button type="submit" [disabled]="projectForm.invalid || isLoading" class="btn-submit">
+        <span *ngIf="!isLoading">Publier le projet</span>
+        <span *ngIf="isLoading" class="loader-text">
+          <i class="spinner"></i> Chiffrement et envoi...
+        </span>
+      </button>
+
+    </form>
+  </div>
+</div>
